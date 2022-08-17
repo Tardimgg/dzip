@@ -77,7 +77,7 @@ pub fn bounded_huffman(max_len: i32, number_repetitions: &[i32]) -> Vec<i32>{
 
     let mut res = vec![0; number_repetitions.len()];
 
-    for i in 0..max(0, number_repetitions.len() as i32 * 2 - 2) as usize {
+    for i in 0..max(number_repetitions.len(), number_repetitions.len() * 2 - 2) as usize {
         for (k, v) in &coins[i].1 {
             if res[*k] < *v {
                 res[*k] = *v;
